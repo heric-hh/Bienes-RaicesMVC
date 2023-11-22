@@ -1,7 +1,7 @@
 <?php
 CONST TEMPLATES_URL = __DIR__ . '/templates/';
 CONST FUNCIONES_URL = __DIR__ . 'funciones.php';
-CONST CARPETA_IMAGENES = __DIR__ . '/../imagenes/';
+CONST CARPETA_IMAGENES = __DIR__ . '/../public/imagenes/';
 
 function incluirTemplate( string $nombre, bool $inicio = false ) {
     include TEMPLATES_URL . $nombre . ".html.php";
