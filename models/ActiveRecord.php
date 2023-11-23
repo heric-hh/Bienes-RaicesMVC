@@ -121,7 +121,7 @@ class ActiveRecord {
         
         if( $resultado ) {
             $this->borrarImagen();
-            header('Location: ' . $_SERVER['PHP_SELF'] . '?resultado=3' ); // $_SERVER['PHP_SELF'] -> para obtener la url actual        
+            header('Location: ../admin?resultado=3' ); // $_SERVER['PHP_SELF'] -> para obtener la url actual        
         }
     }
 

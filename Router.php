@@ -23,13 +23,13 @@ class Router {
         $urlActual = $_SERVER['PATH_INFO'] ?? '/';
         $metodo = $_SERVER['REQUEST_METHOD'];
 
-
         if ( $metodo === 'GET' ) {
             $fn = $this->rutasGET[ $urlActual ] ?? null;
         } 
         else {
             $fn = $this->rutasPOST[ $urlActual ] ?? null;
         }
+
 
         if ( $fn ) {
             call_user_func( $fn , $this );
