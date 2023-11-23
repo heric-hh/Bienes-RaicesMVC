@@ -15,8 +15,4 @@ $router->post( '/propiedades/crear' , [PropiedadController::class , 'crear'] );
 $router->post( '/propiedades/actualizar' , [PropiedadController::class , 'actualizar'] );
 $router->post( '/propiedades/eliminar' , [PropiedadController::class , 'eliminar'] );
 
-
-
-
-
 $router->comprobarRutas();

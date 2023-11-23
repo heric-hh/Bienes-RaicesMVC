@@ -31,20 +31,21 @@
         <tbody>
             <?php foreach( $propiedades as $propiedad ) :  ?>
             <tr>
-                <td> <?php echo $propiedad->id_propiedad ?> </td>
+                <td> <?php echo $propiedad->id ?> </td>
                 <td> <?php echo $propiedad->titulo ?> </td>
                 <td> <img src="../imagenes/<?php echo $propiedad->imagen ?>" class="imagen-tabla"> </td>
                 <td> $ <?php echo $propiedad->precio ?> </td>
                 <td>
                     <form method="POST" class="w-100">
-                        <input type="hidden" name="id" value="<?php echo $propiedad->id_propiedad; ?>">
+                        <input type="hidden" name="id" value="<?php echo $propiedad->id; ?>">
                         <input type="hidden" name="tipo" value = "propiedad">
                         <input type="submit" class="boton-rojo-block" value="Eliminar">
                     </form>
                     <a 
-                        href="propiedades/actualizar.html.php?id=<?php echo $propiedad->id_propiedad; ?>"
+                        href="propiedades/actualizar?id=<?php echo $propiedad->id; ?>"
                         class="boton-amarillo-block" >                            
                         Actualizar
+                        
                     </a>
                 </td>
             </tr>

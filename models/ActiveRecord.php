@@ -95,13 +95,12 @@ class ActiveRecord {
     public function actualizar() {
         //Sanitizar los datos
         $atributos = $this->sanitizarAtributos();
-        
         $valores = [];
 
         foreach( $atributos as $key => $value ) {
             $valores[] = "$key = '$value'";
         }
-        
+
         $query = "UPDATE " . static::$tabla . " SET ";
         $query .= join(', '  , $valores );
         $query .= " WHERE id = '" . self::$db->escape_string( $this->id ) . "' ";
@@ -111,7 +110,7 @@ class ActiveRecord {
 
         if( $resultado ) {
             //* Redireccionar al usuario a la pagina de admin
-            header('Location: ../?resultado=2');
+            header('Location: ../admin?resultado=2');
         }
     }
 
@@ -159,7 +158,7 @@ class ActiveRecord {
     public function atributos() {
         $atributos = [];
         foreach( static::$columnasDb as $columna ) {
-            if( $columna === 'id_propiedad' ) continue;
+            if( $columna === 'id' ) continue;
             $atributos[ $columna ] = $this->$columna; 
         }
         return $atributos;
@@ -179,6 +178,7 @@ class ActiveRecord {
     // * Sincroniza el objeto en memoria con los cambios realizados por el usuario
     public function sincronizar( $args = [] ) {
         foreach( $args as $key => $value ) {
+            if ( $key === 'id' ) continue;
             if( property_exists( $this , $key ) && !is_null( $value ) ) {
                 $this->$key = $value;
             }
@@ -206,71 +206,4 @@ class ActiveRecord {
             unlink( CARPETA_IMAGENES . $this->imagen );
         }
     }
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    // public function actualizarVendedor() {
-    //     //Sanitizar los datos
-    //     $atributos = $this->sanitizarAtributos();
-        
-    //     $valores = [];
-
-    //     foreach( $atributos as $key => $value ) {
-    //         $valores[] = "$key = '$value'";
-    //     }
-        
-    //     $query = "UPDATE " . static::$tabla . " SET ";
-    //     $query .= join(', '  , $valores );
-    //     $query .= " WHERE id_vendedor = '" . self::$db->escape_string( $this->id_vendedor ) . "' ";
-    //     $query .= " LIMIT 1 ";
-
-    //     $resultado = self::$db->query( $query );
-
-    //     if( $resultado ) {
-    //         //* Redireccionar al usuario a la pagina de admin
-    //         header('Location: ../?resultado=2');
-    //     }
-    // }
-
-    
-
-    // public function eliminarVendedor() {
-    //     //* Eliminar la propiedad
-    //     $query = "DELETE FROM " . static::$tabla . " WHERE id_vendedor = " . self::$db->escape_string( $this->id_vendedor ) . " LIMIT 1";
-    //     $resultado = self::$db->query( $query );
-        
-    //     if( $resultado ) {
-    //         $this->borrarImagen();
-    //         header('Location: ' . $_SERVER['PHP_SELF'] . '?resultado=3' ); // $_SERVER['PHP_SELF'] -> para obtener la url actual        
-    //     }
-    // }
-
-    
-
-    
-
-    
-
-    
-
-    // public static function findVendedor( $id ) {
-    //     $query = "SELECT * FROM " . static::$tabla . " WHERE id_vendedor = $id";
-    //     $resultado = self::consultarSQL( $query );
-    //     return array_shift( $resultado ); 
-    // }
-
-
-    
-
-    
-
-    
 }

@@ -5,7 +5,7 @@ namespace Model;
 class Propiedad extends ActiveRecord {
     protected static $tabla = 'propiedades';
     protected static $columnasDb = [
-        'id_propiedad',
+        'id',
         'titulo',
         'precio',
         'imagen',
@@ -17,7 +17,7 @@ class Propiedad extends ActiveRecord {
         'id_vendedor'
     ];
 
-    public $id_propiedad;
+    public $id;
     public $titulo;
     public $precio;
     public $imagen;
@@ -30,7 +30,7 @@ class Propiedad extends ActiveRecord {
 
     public function __construct( $args = [] )
     {   
-        $this->id_propiedad = $args['id_propiedad'] ?? null;
+        $this->id = $args['id'] ?? null;
         $this->titulo = $args['titulo'] ?? '';
         $this->precio = $args['precio'] ?? '';
         $this->imagen = $args['imagen'] ?? '';

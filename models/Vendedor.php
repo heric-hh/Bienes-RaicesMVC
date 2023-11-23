@@ -5,19 +5,19 @@ namespace Model;
 class Vendedor extends ActiveRecord {
     protected static $tabla = 'vendedores';
     protected static $columnasDb = [
-        'id_vendedor',
+        'id',
         'nombre',
         'apellido',
         'telefono',
     ];
-    public $id_vendedor;
+    public $id;
     public $nombre;
     public $apellido;
     public $telefono;
 
     public function __construct( $args = [] )
     {   
-        $this->id_vendedor = $args['id_vendedor'] ?? null;
+        $this->id = $args['id_vendedor'] ?? null;
         $this->nombre = $args['nombre'] ?? '';
         $this->apellido = $args['apellido'] ?? '';
         $this->telefono = $args['telefono'] ?? '';
