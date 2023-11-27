@@ -24,15 +24,13 @@ class Vendedor extends ActiveRecord {
     }
 
     public function validar() {
-        switch( true ) {
-            case !$this->nombre:
-                self::$errores[] = "Debes añadir un nombre";
-            case !$this->apellido:
-                self::$errores[] = "Debes añadir un apellido";
-            case !$this->telefono:
-                self::$errores[] = "Debes añadir un telefono";
-                break;
-        }
+        
+        if ( !$this->nombre )
+            self::$errores[] = "Debes añadir un nombre";
+        if ( !$this->apellido )
+            self::$errores[] = "Debes añadir un apellido";
+        if ( !$this->telefono )
+            self::$errores[] = "Debes añadir un telefono";
 
         if( !preg_match( '/[0-9]{10}/' , $this->telefono ) ) {
             self::$errores[] = "Formato del telefono no valido";

@@ -1,5 +1,5 @@
 <main class="contenedor seccion">
-    <h1>Crear Vendedor</h1>
+    <h1>Actualizar Vendedor</h1>
 
     <a href="../admin" class="boton boton-verde">Volver</a>
 
@@ -11,6 +11,6 @@
 
     <form action="" class="formulario" method="POST">
     <?php include __DIR__ . "/formulario.html.php" ?>
-    <input type="submit" value="Crear Vendedor" class="boton boton-verde" />
+    <input type="submit" value="Actualizar Propiedad" class="boton boton-verde" />
     </form>
 </main>

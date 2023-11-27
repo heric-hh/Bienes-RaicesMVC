@@ -21,8 +21,8 @@
 <header class="header <?php echo $inicio ? 'inicio' : '' ?>">
     <div class="contenedor contenido-header">
         <div class="barra">
-            <a href="/bienesraices/index.html.php">
-                <img src="/bienesraices/build/img/logo.svg" alt="logotipo_bienesraices">
+            <a href="/bienesraicesMVC/public/">
+                <img src="/bienesraicesMVC/public/build/img/logo.svg" alt="logotipo_bienesraices">
             </a>
             <div class="mobile-menu">
                 <img src="/bienesraices/build/img/barras.svg" alt="Icono MenuResponsive">
@@ -30,12 +30,12 @@
             <div class="derecha">
                 <img src="/bienesraices/build/img/dark-mode.svg" alt="Dark mode" class="dark-mode-boton">
                 <nav class="navegacion">
-                    <a href="nosotros.html.php">Nosotros</a>
-                    <a href="anuncios.html.php">Anuncios</a>
-                    <a href="blog.html.php">Blog</a>
-                    <a href="contacto.html.php">Contacto</a>
+                    <a href="/bienesraicesMVC/public/index.php/nosotros">Nosotros</a>
+                    <a href="/bienesraicesMVC/public/index.php/propiedades">Anuncios</a>
+                    <a href="/bienesraicesMVC/public/index.php/blog">Blog</a>
+                    <a href="/bienesraicesMVC/public/index.php/contacto">Contacto</a>
                     <?php if( $auth ) :?>
-                        <a href="/bienesraices/cerrar-sesion.php">Cerrar Sesión</a>
+                        <a href="cerrar-sesion">Cerrar Sesión</a>
                     <?php endif; ?>
                 </nav>
             </div>
@@ -53,10 +53,10 @@
 <footer class="footer">
     <div class="contenedor contenedor-footer">
         <nav class="navegacion">
-            <a href="nosotros.html.php">Nosotros</a>
-            <a href="anuncios.html.php">Anuncios</a>
-            <a href="blog.html.php">Blog</a>
-            <a href="contacto.html.php">Contacto</a>
+            <a href="/bienesraicesMVC/public/index.php/nosotros">Nosotros</a>
+            <a href="/bienesraicesMVC/public/index.php/propiedades">Anuncios</a>
+            <a href="/bienesraicesMVC/public/index.php/blog">Blog</a>
+            <a href="/bienesraicesMVC/public/index.php/contacto">Contacto</a>
         </nav>
     </div>
     <p class="copyright">Todos los derechos reservados <?php echo date('Y') ?> &copy;</p>
