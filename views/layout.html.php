@@ -35,7 +35,7 @@
                     <a href="/bienesraicesMVC/public/index.php/blog">Blog</a>
                     <a href="/bienesraicesMVC/public/index.php/contacto">Contacto</a>
                     <?php if( $auth ) :?>
-                        <a href="cerrar-sesion">Cerrar Sesión</a>
+                        <a href="/bienesraicesMVC/public/index.php/logout">Cerrar Sesión</a>
                     <?php endif; ?>
                 </nav>
             </div>

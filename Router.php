@@ -20,6 +20,21 @@ class Router {
     }
        
     public function comprobarRutas() {
+
+        session_start();
+        $auth = $_SESSION['login'] ?? null;
+
+        //Arreglo de rutas protegidas
+        $rutasProtegidas = [
+            '/admin',
+            '/propiedades/crear',
+            '/propiedades/actualizar',
+            '/propiedades/eliminar',
+            'vendedores/crear',
+            'vendedores/actualizar',
+            'vendedores/eliminar',
+        ];
+
         $urlActual = $_SERVER['PATH_INFO'] ?? '/';
         $metodo = $_SERVER['REQUEST_METHOD'];
 
@@ -28,6 +43,12 @@ class Router {
         } 
         else {
             $fn = $this->rutasPOST[ $urlActual ] ?? null;
+        }
+
+        //Proteger las rutas
+        if ( in_array( $urlActual , $rutasProtegidas ) && !$auth ) {
+
+            header( 'Location: /bienesraicesMVC/public/index.php' );
         }
 
 
